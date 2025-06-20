@@ -69,6 +69,10 @@
                     "type": "string",
                     "title": "Source",
                     "_backboneForms": "Asset"
+                  },
+                  "_id": {
+                    "type": "string",
+                    "title": "Unique identifier"
                   }
                 }
               }

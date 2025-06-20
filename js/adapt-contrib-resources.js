@@ -54,6 +54,30 @@ class Resources extends Backbone.Controller {
 
       drawer.openCustomView(new ResourcesView({ model }).$el);
     });
+
+    /**
+     * handler for showing a resource in the drawer list:
+     * <a href='#' data-show-resource='_id'>link text</a>
+     */
+    $('body').on('click.resources', 'a[data-show-resource]', function(e) {
+      if (e) e.preventDefault();
+      Adapt.trigger('resources:showResources');
+      Adapt.trigger('resources:showResource', e.currentTarget.getAttribute('data-show-resource'));      
+    });
+
+    /**
+     * handler for opening a resource from the content:
+     * <a href='#' data-open-resource='_id'>link text</a>
+     */
+    $('body').on('click.resources', 'a[data-open-resource]', function(e) {
+      if (e) e.preventDefault();
+      const model = new Backbone.Model(resourcesData);
+      model.get('_resourcesItems').forEach((item) => {
+        if (item._id === e.currentTarget.getAttribute('data-open-resource')) {
+          window.open(item._link, "_blank");
+        }
+      });
+    });
   }
 
   setupTypes(model, resourcesData) {

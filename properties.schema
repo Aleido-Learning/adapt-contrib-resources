@@ -376,10 +376,10 @@
                       },
                       "title": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "translatable": true
                       },
                       "filename": {
@@ -400,10 +400,10 @@
                       },
                       "_link": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "title": "Link",
                         "inputType": "Asset",
-                        "validators": ["required"]
+                        "validators": []
                       },
                       "_isGlobal": {
                         "type": "boolean",
@@ -412,6 +412,14 @@
                         "title": "Is displayed on every page?",
                         "inputType": "Checkbox",
                         "validators": []
+                      },
+                      "_id": {
+                        "type": "string",
+                        "required": false,
+                        "title": "Unique identifier",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Used to set a unique identifier so that the resources can be linked to from the content. Use: <a href='#' data-show-resource='**Unique identifier**'>link text</a> to show the resource in the list. Use: <a href='#' data-open-resource='**Unique identifier**'>link text</a> to open a resource directly from the content."
                       }
                     }
                   }
@@ -463,10 +471,10 @@
                       },
                       "title": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "title": "Title",
                         "inputType": "Text",
-                        "validators": ["required"],
+                        "validators": [],
                         "translatable": true
                       },
                       "filename": {
@@ -487,10 +495,18 @@
                       },
                       "_link": {
                         "type": "string",
-                        "required": true,
+                        "required": false,
                         "title": "Link",
                         "inputType": "Asset",
-                        "validators": ["required"]
+                        "validators": []
+                      },
+                      "_id": {
+                        "type": "string",
+                        "required": false,
+                        "title": "Unique identifier",
+                        "inputType": "Text",
+                        "validators": [],
+                        "help": "Used to set a unique identifier so that the resources can be linked to from the content. Use: <a href='#' data-show-resource='**Unique identifier**'>link text</a> to show the resource in the list. Use: <a href='#' data-open-resource='**Unique identifier**'>link text</a> to open a resource directly from the content."
                       }
                     }
                   }

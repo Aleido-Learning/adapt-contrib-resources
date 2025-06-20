@@ -26,6 +26,7 @@ export default function ResourcesItem (props) {
       ])}
       role="listitem">
 
+      {_link &&
       <a href={_link} className="resources__item-btn drawer__item-btn"
         data-type={_type}
         data-index={_index}
@@ -48,6 +49,31 @@ export default function ResourcesItem (props) {
         }
 
       </a>
+      }
+
+      {!_link &&
+      <div
+        className={classes([
+          'resources__item-heading',
+          'resources__item-title',
+          (title || description) ? 'is-heading' : 'is-spacer'
+        ])}
+      >
+        
+        {title &&
+        <div className="resources__item-title drawer__item-title">
+          <div className="resources__item-title-inner drawer__item-title-inner" dangerouslySetInnerHTML={{ __html: title }} />
+        </div>
+        }
+
+        {description &&
+        <div className="resources__item-body drawer__item-body">
+          <div className="resources__item-body-inner drawer__item-body-inner" dangerouslySetInnerHTML={{ __html: description }} />
+        </div>
+        }
+
+      </div>
+      }
 
     </div>
   );

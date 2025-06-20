@@ -13,6 +13,7 @@ export default class ResourcesView extends Backbone.View {
     this.onResourceItemClicked = this.onResourceItemClicked.bind(this);
 
     this.listenTo(Adapt, 'remove', this.remove);
+    this.listenTo(Adapt, 'resources:showResource', this.showResource);
     this.render();
   }
 
@@ -40,6 +41,18 @@ export default class ResourcesView extends Backbone.View {
     const index = $(e.currentTarget).attr('data-index');
     const resourceItemData = this.model.get('_resourcesItems')[index];
     Adapt.trigger('resources:itemClicked', resourceItemData);
+  }
+
+  showResource(id) {
+    if (!id) return;
+
+    this.model.get('_resourcesItems').forEach((item, index) => {
+      if (item._id === id) {
+        const $el = this.$('.resources__item').eq(index);
+        $el.addClass('is-highlighted');
+        $('.js-drawer-holder').animate({scrollTop: ($el.position().top - $('.drawer__toolbar').height())});
+      }
+    });
   }
 
 }

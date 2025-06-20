@@ -417,6 +417,10 @@
                     "type": "boolean",
                     "title": "Is displayed on every page",
                     "default": true
+                  },
+                  "_id": {
+                    "type": "string",
+                    "title": "Unique identifier"
                   }
                 }
               }

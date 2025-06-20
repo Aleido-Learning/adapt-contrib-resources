@@ -15,4 +15,27 @@
   html:not(.ie) &__filter-btn {
     flex-basis: 0;
   }
+
+  &__item {
+    &.is-highlighted {
+      .drawer__item-btn {
+        background-color: @item-color-selected;
+        color: @item-color-inverted-selected;
+      }
+    }
+  }
+
+  &__item-heading {
+    display: block;
+    background-color: @drawer-item-inverted;
+    color: @drawer-item;
+
+    &.is-heading {
+      padding: @item-padding;
+    }
+
+    &.is-spacer {
+      border-bottom: 2px solid @drawer-item-inverted;
+    }
+  }
 }
