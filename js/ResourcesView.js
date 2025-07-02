@@ -1,4 +1,5 @@
 import Adapt from 'core/js/adapt';
+import a11y from 'core/js/a11y';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { templates } from 'core/js/reactHelpers';
@@ -51,6 +52,9 @@ export default class ResourcesView extends Backbone.View {
         const $el = this.$('.resources__item').eq(index);
         $el.addClass('is-highlighted');
         $('.js-drawer-holder').animate({scrollTop: ($el.position().top - $('.drawer__toolbar').height())});
+        _.delay(() => {
+          a11y.focusFirst($el);
+        }, 2000);
       }
     });
   }
